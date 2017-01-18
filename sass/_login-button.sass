@@ -136,7 +136,9 @@
 			// max-height: 0
 			// overflow: hidden
 			opacity: 0
-			+transition(0.3s)
+			overflow: hidden
+			height: 0
+			+transition(opacity 0.3s)
 			pointer-events: none
 
 
@@ -262,8 +264,11 @@
 			opacity: 1
 			pointer-events: all
 
+		// &.hover
 		&:hover
 			.submenu
+				overflow: visible
+				height: auto
 				opacity: 1
 				pointer-events: all
 

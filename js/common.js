@@ -73,7 +73,7 @@ function initGoogleMaps()
 	console.log('Google Maps Init done!');
 	if (typeof _googleMapsQueue === 'undefined')
 		_googleMapsQueue = [];
-	
+
 	for (var i = 0; i < _googleMapsQueue.length; i++)
 	{
 		_googleMapsQueue[i] && _googleMapsQueue[i].call();
@@ -286,6 +286,24 @@ function setupNavigationMenu()
 	}
 
 	$(window).on('scroll', debounce(_menuOnScroll, 100));
+
+	//==========================================
+	
+	// $('header .login-button')
+	// 	.on('mouseenter', function(e)
+	// 	{
+	// 		var $this = $(this);
+	// 		if ( $this.hasClass('hover')==false )
+	// 			$this.addClass('hover')
+	// 	})
+	// 	.on('mouseleave', function(e)
+	// 	{
+	// 		var $this = $(this);
+	// 		if ( $this.hasClass('hover') )
+	// 			$this.removeClass('hover')
+	// 	})
+	// ;
+
 
 }
 
