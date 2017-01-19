@@ -143,7 +143,9 @@
 					opacity: 0.5
 					pointer-events: none
 
-			$w: -110px
+			// $w: -110px
+			// $w: -76px
+			$w: -80px
 			.slick-prev
 				+rem(left, $w)
 
@@ -520,6 +522,8 @@
 			// width: calc(100% - 10rem)
 			width: auto
 			max-width: 100%
+			padding-left: 0
+			padding-right: 0
 
 		.options
 			display: inline-block
@@ -547,7 +551,8 @@
 
 
 			.item-list
-				display: block
+				// display: block
+				display: inline-block
 				white-space: nowrap
 				+rem(margin-top, 80px)
 
@@ -614,11 +619,17 @@
 			+rem(margin-top, 35px)
 			+rem(padding-bottom, 35px)
 
+			& > .tab-buttons > .slick-list
+				display: inline-block
+				max-width: 100%
+
 			& > .slick-list > .slick-track
 				width: 100% !important
 
 			.tab-buttons
 				width: 100%
+				+rem(width, 1280px)
+				max-width: 100%
 				// width: auto
 				display: inline-block
 				font-size: 0
@@ -731,14 +742,48 @@
 						&.active
 							border-bottom-color: #e1ae05
 
+				&.col-of-1
+					.tab-button
+						width: (1/1)*100%
+
+				&.col-of-2
+					.tab-button
+						width: (1/2)*100%
+
+				&.col-of-3
+					.tab-button
+						width: (1/3)*100%
+
+				&.col-of-4
+					.tab-button
+						width: (1/4)*100%
+
+				&.col-of-5
+					.tab-button
+						width: (1/5)*100%
+
+				&.col-of-6
+					.tab-button
+						width: (1/6)*100%
+
 			.tab-content
 				// display: block
 				text-align: center
 				// width: 100%
 				+rem(width, 4*320px)
 				max-width: 100%
-				+rem(margin-top, 50px)
-				+rem(margin-bottom, 18px)
+				max-width: calc(100% - 160px)
+				margin-top: 0
+				margin-bottom: 0
+				// +rem(padding-top, 50px)
+				// +rem(padding-bottom, 18px)
+
+				+rem(padding-left, 80px)
+				+rem(padding-right, 80px)
+
+				&.active
+					+rem(margin-top, 50px)
+					+rem(margin-bottom, 18px)
 
 				& > .title
 					+rem(font-size, 32px)
