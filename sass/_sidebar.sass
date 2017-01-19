@@ -24,6 +24,8 @@ aside#sidebar
 		height: 100%
 		width: 100%
 		overflow: hidden
+		overflow-y: auto
+		text-align: right
 
 
 	.click-trap
@@ -45,8 +47,8 @@ aside#sidebar
 	
 
 	.sidebar
-		display: block
-		position: absolute
+		// display: block
+		// position: absolute
 		right: 0
 		top: 0
 		// bottom: 0
@@ -57,6 +59,10 @@ aside#sidebar
 		+transition(0.3s)
 		+transform(translateX(150%))
 		min-height: 100%
+
+		display: inline-block
+		position: relative
+		text-align: left
 
 		& > .close-button
 			display: none

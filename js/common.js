@@ -404,9 +404,9 @@ function openSidebar($replaceContentsWith)
 	// var $sidebar = $('aside#offer-sidebar');
 	var $sidebar = $('aside#sidebar > .sidebar-contents');
 
-	$sidebar.empty();
 	if ( $replaceContentsWith && $replaceContentsWith.length )
 	{
+		$sidebar.empty();
 		$sidebar.append( $replaceContentsWith.clone() );
 	}
 
@@ -2069,13 +2069,14 @@ function setupSidebarRouter()
 	var element_id = checkSidebarRoute(window.location.href);
 	if (element_id)
 	{
-		alert('sidebar route detected! '+element_id);
+		// alert('sidebar route detected! '+element_id);
 
 		if ( element_id.indexOf('#opensidebar?') > -1 )
 		{
 			element_id = element_id.slice( '#opensidebar?'.length );
 		}
 		openSidebar( $('#'+element_id) );
+		showSidebar();
 	}
 
 }
@@ -2671,7 +2672,8 @@ function setupHashNavigation()
 	{
 		// var hash = href.slice(0, href.indexOf('#'));
 		var hash = window.location.hash;
-		if ( strStartsWith(hash, '#?')==false )
+		var isSidebarRoute = checkSidebarRoute(window.location.href);
+		if ( strStartsWith(hash, '#?')==false && !isSidebarRoute)
 		{
 			var el = document.querySelector(window.location.hash);
 			if (el)
