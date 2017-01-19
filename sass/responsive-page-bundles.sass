@@ -1,0 +1,144 @@
+@import "compass"
+
+@import "vars"
+
+@import "utils"
+
+
+@media (max-width: $mobile-breakpoint)
+	
+	section#intro
+		// +rem(max-width, 1680px)
+		// +rem(margin-top, 2px)
+		.wrapper
+			+rem(padding, 30px 20px)
+			// background-color: white
+
+			.title
+				+rem(font-size, 32px)
+				letter-spacing: normal
+				font-weight: 800
+
+			.detail
+				// +rem(font-size, 24px)
+				// +rem(line-height, 32px)
+				+rem(margin-top, 15px)
+				// font-weight: 200
+				// +rem(width, 660px)
+				// max-width: 95%
+				width: auto
+				+rem(font-size, 16px)
+				+rem(line-height, 22px)
+
+				span
+					position: relative
+					bottom: 0.2rem
+
+				.underlined-title
+					// +rem(font-size, 24px)
+					font-weight: bold
+					+rem(font-size, 16px)
+					+rem(line-height, 22px)
+
+					&:before
+						left: 0
+						background-color: $color-cyan
+						bottom: 0.3em
+
+
+			.links
+				display: none
+
+
+				
+
+
+
+	
+
+	.alternating-color-sections
+		// & > section
+		& > .page-middle-column
+			+rem(max-width, 1680px)
+			text-align: center
+
+			& > .head-wrapper
+				display: block
+				+rem(padding, 20px)
+				text-align: left
+				+rem(padding-top, 40px)
+
+				// .title.underlined-title.size-xxl
+				.title.underlined-title
+					+rem(font-size, 32px)
+					color: $color-black
+					letter-spacing: normal
+					// font-weight: bold
+
+					&:before
+						// background-color: $color-red
+						// background-image: url('../img/package-bottom.png')
+						+rem(height, 12px)
+						+rem(left, 20px)
+
+				.detail 
+					display: block
+					// +no-rem(font-size, 16px)
+					+rem(font-size, 16px)
+					+rem(line-height, 22px)
+					+rem(margin-top, 22px)
+					+weight200
+					color: $color-black
+
+			.package-list
+				+rem(padding-bottom, 35px)
+				width: 100%
+				left: 0
+				right: 0
+				margin: auto
+
+				padding-bottom: 0
+
+				.slick-dots
+					+rem(padding-bottom, 30px)
+
+				// .slick-list
+				// 	width: 75%
+
+
+	
+	section#there-is-more
+		// display: block
+		// +rem(width, 1680px)
+		width: 100%
+		background-color: white
+		// +rem(margin-top, 2px)
+		+rem(padding-bottom, 30px)
+		left: 0
+		right: 0
+		margin-left: auto
+		margin-right: auto
+
+		.head-wrapper
+			+rem(padding, 20px)
+			+rem(padding-top, 40px)
+			+rem(padding-bottom, 25px)
+
+			.title
+				+rem(font-size, 32px)
+				// font-weight: bold
+
+			.detail
+				+no-rem(font-size, 16px)
+				+weight200
+				// font-weight: 200
+				+rem(margin-top, 20px)
+
+
+		.article-box-carousel
+			.slick-dots
+				display: block !important
+
+
+
+
