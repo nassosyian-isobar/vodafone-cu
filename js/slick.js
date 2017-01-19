@@ -453,7 +453,8 @@
 			_.$prevArrow = $(_.options.prevArrow).addClass('slick-arrow');
 			_.$nextArrow = $(_.options.nextArrow).addClass('slick-arrow');
 
-			if( _.slideCount > _.options.slidesToShow ) {
+			// if( _.slideCount > _.options.slidesToShow ) 
+			{
 
 				_.$prevArrow.removeClass('slick-hidden').removeAttr('aria-hidden tabindex');
 				_.$nextArrow.removeClass('slick-hidden').removeAttr('aria-hidden tabindex');
@@ -472,16 +473,23 @@
 						.attr('aria-disabled', 'true');
 				}
 
-			} else {
+			} 
+			// else 
+			// {
 
-				_.$prevArrow.add( _.$nextArrow )
+			// 	_.$prevArrow.add( _.$nextArrow )
 
-					.addClass('slick-hidden')
-					.attr({
-						'aria-disabled': 'true',
-						'tabindex': '-1'
-					});
+			// 		.addClass('slick-hidden')
+			// 		.attr({
+			// 			'aria-disabled': 'true',
+			// 			'tabindex': '-1'
+			// 		});
 
+			// }
+			if( _.slideCount <= _.options.slidesToShow ) 
+			{
+				_.$prevArrow.addClass('slick-disabled');
+				_.$nextArrow.addClass('slick-disabled');
 			}
 
 		}
@@ -493,7 +501,9 @@
 		var _ = this,
 			i, dot;
 
-		if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+		// if (_.options.dots === true && _.slideCount > _.options.slidesToShow) 
+		if (_.options.dots === true)
+		{
 
 			_.$slider.addClass('slick-dotted');
 
@@ -504,6 +514,9 @@
 			}
 
 			_.$dots = dot.appendTo(_.options.appendDots);
+
+			if (_.slideCount <= _.options.slidesToShow)
+				_.$dots.addClass('slick-disabled');
 
 			_.$dots.find('li').first().addClass('slick-active').attr('aria-hidden', 'false');
 
@@ -1997,6 +2010,8 @@
 				var toShow = Math.floor(_.listWidth / _.slideWidth);
 				if (toShow > 0)
 					_.options.slidesToShow = toShow;
+				// console.log('_.options.slidesToShow: '+_.options.slidesToShow);
+				console.log('listWidth['+_.listWidth+'] slideWidth['+_.slideWidth+'] slidesToShow: '+_.options.slidesToShow);
 				// _.options.slidesToShow = Math.max(1, _.options.slidesToShow);
 			}
 			else
@@ -2022,6 +2037,63 @@
 		if (_.options.variableWidth === false) _.$slideTrack.children('.slick-slide').width(_.slideWidth - offset);
 
 	};
+
+	Slick.prototype.resizeRefresh = function() {
+
+		var _ = this,
+			targetLeft;
+
+		console.log(_.$slider);
+
+		function _calcIndex()
+		{
+			var listLen = _.$slideTrack.children('.slick-slide').length;
+			var max = listLen - _.options.slidesToShow;
+			max = Math.max(0, max);
+			_.currentSlide = Math.min(max, _.currentSlide);
+		}
+
+
+		// _.setDimensions();
+		// _.setPosition();
+		_.$slider.find('.slick-dots').remove();
+		// if (_.options.slidesToShow > 1)
+		// 	_.calcIndex();
+		// _.setSlideClasses(_.currentSlide);
+		if (_.$prevArrow)
+		{
+			if( _.slideCount > _.options.slidesToShow ) 
+			{
+				if (_.currentSlide > 0)
+					_.$prevArrow.removeClass('slick-disabled');
+				_.$prevArrow.removeClass('slick-hidden');
+				if (_.currentSlide + _.options.slidesToShow < _.slideCount)
+					_.$nextArrow.removeClass('slick-disabled');
+				_.$nextArrow.removeClass('slick-hidden');
+			}
+			else
+			{
+				_.$prevArrow.addClass('slick-disabled').addClass('slick-hidden');
+				_.$nextArrow.addClass('slick-disabled').addClass('slick-hidden');
+			}
+			// _.initArrowEvents();
+		}
+		_.updateArrows();
+		// _.setDimensions();
+		// _.buildDots();
+		// if (_.options.slidesToShow > 1)
+		// 	_.calcIndex();
+		_calcIndex()
+		_.setPosition();
+		// _.calcIndex();
+		_.setSlideClasses(_.currentSlide);
+		_.$slider.trigger('beforeChange', [_, _.currentSlide, _.currentSlide]);
+		_.buildDots();
+		_.updateDots();
+		_.initDotEvents();
+		console.log('slideToShow['+_.options.slidesToShow+'] currentSlide['+_.currentSlide+']');
+	};
+
 
 	Slick.prototype.setFade = function() {
 
@@ -2176,6 +2248,10 @@
 
 		var count = Math.ceil( (-xOffset) / _.slideWidth);
 		count = Math.max(0, count);
+		var listLen = _.$slideTrack.children('.slick-slide').length;
+		var max = listLen - _.options.slidesToShow;
+		max = Math.max(0, max);
+		count = Math.min(max, count);
 
 		_.currentSlide = count;
 	};

@@ -68,10 +68,10 @@
 
 
 .slick-track
-	left: 0
-	right: 0
-	margin-left: auto
-	margin-right: auto
+	// left: 0
+	// right: 0
+	// margin-left: auto
+	// margin-right: auto
 	font-size: 0
 
 	.slick-slide
@@ -414,8 +414,14 @@ input:focus+label.movable, input.focused+label.movable, input.has-value+label.mo
 
 .tabbed-control
 	.tab-contents
+		.tab-content
+			max-height: none
+			overflow: initial
+
 		.tab-content:not(.active)
-			display: none
+			// display: none
+			max-height: 0
+			overflow: hidden
 
 
 .sidebar-info
@@ -425,12 +431,19 @@ input:focus+label.movable, input.focused+label.movable, input.has-value+label.mo
 .slick-arrow
 	cursor: pointer
 
+	&.slick-hidden
+		display: none
+		
+
 .slick-dots
 	text-align: center
 	left: 0
 	right: 0
 	margin-left: auto
 	margin-right: auto
+
+	&.slick-disabled
+		visibility: hidden
 
 	white-space: nowrap
 	& > li

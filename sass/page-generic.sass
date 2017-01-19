@@ -74,8 +74,10 @@
 		+rem(margin-bottom, 25px)
 
 	.h3
-		+rem(margin-bottom, 20px)
-
+		+rem(margin-bottom, 15px)
+	
+	.h4
+		+rem(margin-bottom, 10px)
 
 	// .paragraph
 	p
@@ -84,9 +86,10 @@
 		font-weight: 100
 		+rem(letter-spacing, 0)
 		+rem(margin-bottom, 15px)
+		+rem(line-height, 30px)
 
-		&:last-of-type
-			margin-bottom: 0
+		// &:last-of-type
+		// 	margin-bottom: 0
 
 		
 
@@ -153,6 +156,7 @@
 		+rem(padding, 20px 40px)
 		background-color: $color-black
 		min-width: 100%
+		+rem(margin-bottom,20px)
 		// width: 
 
 		.info
@@ -181,6 +185,7 @@
 				+rem(line-height, 24px)
 				color: white
 				font-weight: 400
+				margin: 0
 
 		a
 			display: inline-block
@@ -303,7 +308,8 @@
 
 	table
 		width: 100%
-		+rem(margin-top, 45px)
+		// +rem(margin-top, 45px)
+		+rem(margin-bottom, 40px)
 		border-collapse: collapse
 
 		thead
@@ -386,10 +392,11 @@
 			+rem(padding-bottom, 45px)
 
 	.gallery-list
-		+rem(margin-top, 45px)
+		// +rem(margin-top, 45px)
+		+rem(margin-bottom, 40px)
 
 	.video-thumb
-		+rem(margin-top, 25px)
+		+rem(margin-bottom, 80px)
 
 
 	// .subnotes
@@ -398,6 +405,7 @@
 		+rem(font-size,16px)
 		color: black
 		font-weight: 300
+		+rem(margin-bottom, 60px)
 		
 		span.red
 			color: $color-red
@@ -414,7 +422,8 @@
 		+rem(height, 450px)
 		z-index: 1
 		background-color: $color-grey
-		+rem(margin-top, 45px)
+		// +rem(margin-top, 45px)
+		+rem(margin-bottom, 80px)
 		max-width: calc(100% - 40px)
 
 		& > .map

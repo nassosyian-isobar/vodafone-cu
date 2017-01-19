@@ -119,10 +119,20 @@
 
 
 .tabbed-carousel-list-block .tab-content
-	display: none
+	// display: none
+	
+	// .slick-slider, .slick-list
+	// 	width: 100%
+
+	.slick-list
+		max-height: 0
+		overflow: hidden
 
 	&.active
 		display: block
+
+		.slick-list
+			max-height: none
 
 // .carousel-package-list, .package-list
 // .tabbed-carousel-list-block .tab-content.active, 
@@ -478,6 +488,9 @@
 		& > .slick-list
 			z-index: 1
 
+		.slick-track > .package-item
+			width: auto !important
+
 		.slick-arrow
 
 			position: absolute
@@ -560,6 +573,7 @@
 
 		.package-item:not(.slick-active)
 			opacity: 0
+			pointer-events: none
 			
 			// // &  > .title > p, & > .detail > a, .bottom .cost, .bottom .action-button .text
 			// *, li, li:before, a, p, .text, .title, .detail
