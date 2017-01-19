@@ -85,11 +85,15 @@
 
 
 	.user-info-dash-board
-		display: block
+		// display: block
 		position: relative
 		background: white
 		// +rem(padding-top, 87px)
-		+rem(padding-top, 157px)
+		// +rem(padding-top, 157px)
+		+rem(padding-top, 40px)
+
+		padding-left: 15px
+		padding-right: 15px
 		// +rem(padding-top, 80px)
 		// +rem(padding-bottom, 40px)
 		// text-align: center
@@ -134,11 +138,17 @@
 			& > .underlined-title, & > .title
 				+rem(font-size, 20px)
 				// font-weight: 100
-				+weight100
+				// +weight100
+				+weight200
+				color: $color-black
 
 		& > .mobile-only > .columns > .col.active > .underlined-title
 			&:before
 				background-color: $color-red
+
+		& .mobile-only > .tabs .usage-col .number
+			font-size: 48px
+
 
 
 		& > .mobile-only > .tabs > .col 
@@ -147,11 +157,18 @@
 			&.active
 				display: block
 
+		& > div.mobile-only > .tabs > .col > .widgets 
+			.col-1-of-3 + .col-1-of-3
+				border-left: 2px solid #e2e3e4
 
 		.remaining-col
+			.cost
+				margin-top: 0
+
 			& > .detail > p
 				margin-top: 1em
-				margin-bottom: 1em
+				// margin-bottom: 1em
+				margin-bottom: 0.7em
 				// +rem(font-size, 24px)
 				// font-weight: 200
 

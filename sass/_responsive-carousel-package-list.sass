@@ -34,7 +34,8 @@
 		// .selection-wrapper
 		.tabbed-control
 
-			+rem(margin, 20px)
+			// +rem(margin, 20px)
+			+rem(margin-top, 20px)
 			+rem(margin-bottom, 30px)
 
 
@@ -45,10 +46,13 @@
 			display: block
 			// width: 99.5%
 			width: 100%
+			width: calc(100% - 40px)
 			// +rem(height, 60px)
 			+rem(height, 62px)
 			outline: none
 			border: none
+			+rem(margin-left, 20px)
+			+rem(margin-right, 20px)
 
 
 			// option
@@ -79,7 +83,8 @@
 			// display: inline-block
 			display: block
 			position: absolute
-			width: auto
+			// width: auto
+			width: calc(100% - 70px)
 			left: 0
 			right: 0
 			margin: auto
@@ -177,15 +182,29 @@
 			width: (290px / 16px)*1rem !important
 			+rem(min-height, 320px)
 
+			.wrapper
+				max-width: 240px
+
 			.top 
 				& > .title
 					+rem(left, -10px)
 					+rem(top, -10px)
 
+
 					& > p
 						+rem(font-size, 20px)
 						// font-weight: 100
-						+weight100
+						// +weight100
+						+weight200
+						// padding-left: 10px
+						// padding-bottom: 10px
+						padding: 0
+
+						display: inline-block
+						position: absolute
+						left: 10px
+						bottom: 10px
+						right: 10px
 
 				.features > li
 					+rem(font-size, 16px)
@@ -195,7 +214,11 @@
 				// 	display: none
 
 				.icon-arrow-head
-					+rem(bottom, 1px)
+					// +rem(bottom, 1px)
+					+rem(bottom, 0px)
+
+					&:before
+						line-height: normal
 
 			.bottom
 				.cost

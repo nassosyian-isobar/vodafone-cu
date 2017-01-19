@@ -201,6 +201,7 @@
 
 		.warning-case
 			display: none
+			+rem(padding-top, 25px)
 
 			& > .detail 
 				+rem(padding-top, 10px)
@@ -218,7 +219,8 @@
 				background: url('../img/warning.png') no-repeat
 				+rem(width, 33px)
 				+rem(height, 29px)
-				+rem(margin-top, 25px)
+				margin-top: 0
+				// +rem(margin-top, 25px)
 
 			.learn-more
 				display: block
@@ -336,5 +338,6 @@
 	#package-activation-flow
 		opacity: 1
 		pointer-events: all
+		z-index: 1000
 
 

@@ -419,7 +419,7 @@ function openSidebar($replaceContentsWith)
 	$sidebar.parent().css('z-index', '1000');
 	// $clickTrap.css('z-index', '900');
 
-	showDimUnderlay(900, closeSidebar);
+	showDimUnderlay(915, closeSidebar);
 
 	setTimeout(function()
 	{
@@ -2849,26 +2849,26 @@ $(document).ready(function()
 	}
 
 
-	// // DUMMY handler used during dev. you must remove it on production
-	// $(window).on('load-side-url', function(e, href)
-	// {
-	// 	// one should load the sidebar at this point
-	// 	// put it inside the aside#sidebar > .sidebar-contents
-	// 	// and call $(window).trigger('sidebar-loaded'); when finished
-	// 	var id = checkSidebarRoute(href);
-	// 	if ( id.indexOf('#opensidebar?') > -1 )
-	// 		id = id.slice( '#opensidebar?'.length );
+	// DUMMY handler used during dev. you must remove it on production
+	$(window).on('load-side-url', function(e, href)
+	{
+		// one should load the sidebar at this point
+		// put it inside the aside#sidebar > .sidebar-contents
+		// and call $(window).trigger('sidebar-loaded'); when finished
+		var id = checkSidebarRoute(href);
+		if ( id.indexOf('#opensidebar?') > -1 )
+			id = id.slice( '#opensidebar?'.length );
 
-	// 	var $el = $('#'+id);
-	// 	var $container = $('aside#sidebar > .sidebar-contents');
-	// 	$container.empty();
-	// 	$container.append($el.children().clone());
+		var $el = $('#'+id);
+		var $container = $('aside#sidebar > .sidebar-contents');
+		$container.empty();
+		$container.append($el.children().clone());
 
-	// 	setTimeout(function()
-	// 	{
-	// 		$(window).trigger('sidebar-loaded');
-	// 	}, 4*1000);
-	// });
+		setTimeout(function()
+		{
+			$(window).trigger('sidebar-loaded');
+		}, 4*1000);
+	});
 
 	setupGoogleMaps();
 	setupFacebookVideo();

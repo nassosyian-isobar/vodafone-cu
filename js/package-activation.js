@@ -41,7 +41,8 @@ function openPackageActivationUI(initialState)
 	var $ui = $('#package-activation-flow');
 	setPackageActivationState(initialState)
 
-	$ui.css('z-index', '1100');
+	// $ui.css('z-index', 1100);
+	// $ui.css('z-index', 900);
 	$('html').addClass('show-package-activation');
 
 	function _packageActivationClickHandler(e)
