@@ -1997,7 +1997,13 @@ function checkSidebarRoute(url)
 	url = url || '';
 
 	if ( url.indexOf('/paketa/') > -1 )
-		return url.slice( url.indexOf('/paketa/') + '/paketa/'.length );
+	{
+		var packet = url.slice( url.indexOf('/paketa/') + '/paketa/'.length );
+		if (packet.length > 0)
+			return packet;
+		else
+			return false;
+	}
 
 	if ( url.indexOf('#opensidebar') > -1 )
 		return url.slice( url.indexOf('#opensidebar') );
