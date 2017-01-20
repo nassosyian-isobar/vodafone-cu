@@ -407,7 +407,7 @@ function openSidebar($replaceContentsWith)
 	if ( $replaceContentsWith && $replaceContentsWith.length )
 	{
 		$sidebar.empty();
-		$sidebar.append( $replaceContentsWith.clone() );
+		$sidebar.append( $replaceContentsWith.clone().attr('class', '') );
 	}
 
 	// var $clickTrap = $('#click-trap-underlay');
@@ -1148,6 +1148,8 @@ function setupPackageCarousels()
 			});
 
 			$el[0].slick.resizeRefresh();
+
+			// $el.find('.slick-track > .')
 
 			// if ($el.hasClass('slick-dotted')==false)
 			// {
@@ -2000,7 +2002,10 @@ function checkSidebarRoute(url)
 	{
 		var packet = url.slice( url.indexOf('/paketa/') + '/paketa/'.length );
 		if (packet.length > 0)
+		{
+			packet = packet.replace('/', '');
 			return packet;
+		}
 		else
 			return false;
 	}
@@ -2179,11 +2184,11 @@ function setupFacebookVideo()
 		var $this = $(this);
 
 		var url = $this.attr('data-facebook-video') || '';
-		//							data-width="'+$(window).width()+'"\
-		var div = '<div class="fb-video"\
-						data-href="'+url+'"\
-						data-allowfullscreen="true"\
-						data-show-captions="true"></div>';
+		//							data-width="'+$(window).width()+'"
+		var div = '<div class="fb-video"'+
+						' data-href="'+url+'"'+
+						' data-allowfullscreen="true"'+
+						' data-show-captions="true"></div>';
 
 		_openFBVideo(div);
 	}
@@ -2213,13 +2218,13 @@ function setupFacebookVideo()
 					});
 				};
 
-		var script = '<script>(function(d, s, id) {\
-							var js, fjs = d.getElementsByTagName(s)[0];\
-							if (d.getElementById(id)) return;\
-							js = d.createElement(s); js.id = id;\
-							js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";\
-							fjs.parentNode.insertBefore(js, fjs);\
-						}(document, "script", "facebook-jssdk"));</script>';
+		var script = '<script>(function(d, s, id) {'+
+						'	var js, fjs = d.getElementsByTagName(s)[0];'+
+						'	if (d.getElementById(id)) return;'+
+						'	js = d.createElement(s); js.id = id;'+
+						'	js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";'+
+						'	fjs.parentNode.insertBefore(js, fjs);'+
+						' }(document, "script", "facebook-jssdk"));</script>';
 
 		$('body').append('<div id="fb-root"></div>'+script);
 

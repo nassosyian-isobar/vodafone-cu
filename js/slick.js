@@ -2091,6 +2091,7 @@
 		_.buildDots();
 		_.updateDots();
 		_.initDotEvents();
+		_.initArrowEvents();
 		// console.log('slideToShow['+_.options.slidesToShow+'] currentSlide['+_.currentSlide+']');
 	};
 
