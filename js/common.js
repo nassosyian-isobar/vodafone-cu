@@ -303,8 +303,6 @@ function setupNavigationMenu()
 	// 			$this.removeClass('hover')
 	// 	})
 	// ;
-
-
 }
 
 
@@ -1095,6 +1093,7 @@ function setupPackageEvents()
 }
 
 
+// DEFUNCT
 function setupPackageCarousels()
 {
 	var $packageLists = $('.package-list').not('.no-auto-carousel .package-list');
@@ -1148,8 +1147,6 @@ function setupPackageCarousels()
 			});
 
 			$el[0].slick.resizeRefresh();
-
-			// $el.find('.slick-track > .')
 
 			// if ($el.hasClass('slick-dotted')==false)
 			// {
@@ -1557,6 +1554,8 @@ function setupGenericCarousel($object)
 	var winWidth = $(window).width();
 	var mobileBreakpoint = 600;
 
+	// return;
+
 	$object.each(function(index, el)
 	{
 		var $el = $(el);
@@ -1602,6 +1601,24 @@ function setupGenericCarousel($object)
 			options["asNavFor"] = asNavFor;
 
 		$el.slick(options);
+
+		var $packageItems = $el.find('.slick-track > .package-item');
+		if ( $packageItems.length > 0 )
+		{
+			var $track = $el.find('.slick-track');
+			var trackHeight = $track.height();
+			trackHeight = Math.round(trackHeight);
+			if ( trackHeight > 0 )
+			{
+				var rem = $('html').css('font-size') || 16;
+				rem = parseFloat(rem);
+				var remHeight = trackHeight / rem;
+				remHeight -= (40/16); // subtract margin-top/bottom
+				$packageItems.children('.wrapper').css('height', remHeight+'rem');
+			}
+		}
+
+		
 		$el[0].slick.resizeRefresh();
 	});
 
