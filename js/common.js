@@ -859,6 +859,18 @@ function setupArticleBoxes()
 				}
 				$el.css('opacity', 1);
 			});
+
+			$(window).on('resize', debounce(function(e)
+								{
+									$details.each(function(index, el)
+									{
+										var $el = $(el);
+										if ( $el.hasClass('is-truncated') )
+											$el.trigger("update");
+									});
+
+								}, 300)
+			);
 		}
 
 		// $titles.truncate({ lines: 6 });
@@ -1618,7 +1630,7 @@ function setupGenericCarousel($object)
 			}
 		}
 
-		
+
 		$el[0].slick.resizeRefresh();
 	});
 

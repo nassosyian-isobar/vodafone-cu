@@ -155,10 +155,15 @@ $sideoffset-rem: (80/16)*1rem
 	.event-info
 		display: inline-block
 		position: relative
-		+rem(left, -40px)
+		// +rem(left, -40px)
+		+rem(left, -$sideoffset)
 		+rem(padding, 20px 40px)
+		+rem(padding-left, $sideoffset)
+		+rem(padding-right, 0)
 		background-color: $color-black
-		min-width: 100%
+		// min-width: 100%
+		// width: calc(100% - #{$sideoffset-rem - (40/16*1rem)})
+		width: calc(100% - #{$sideoffset-rem })
 		+rem(margin-bottom,20px)
 		// width: 
 
@@ -234,6 +239,7 @@ $sideoffset-rem: (80/16)*1rem
 
 	.table
 		+rem(margin-top, 45px)
+		+rem(left, - $sideoffset)
 
 		.th
 			display: block
@@ -310,10 +316,12 @@ $sideoffset-rem: (80/16)*1rem
 
 
 	table
+		position: relative
 		width: 100%
 		// +rem(margin-top, 45px)
 		+rem(margin-bottom, 40px)
 		border-collapse: collapse
+		+rem(left, - $sideoffset)
 
 		thead
 			width: 100%
