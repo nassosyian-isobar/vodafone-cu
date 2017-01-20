@@ -5,6 +5,10 @@
 @import "utils"
 
 
+$sideoffset: 80px
+$sideoffset-rem: (80/16)*1rem
+
+
 .generic-page
 	+rem(width,1680px)
 	max-width: 100%
@@ -13,7 +17,6 @@
 	+rem(padding-bottom,20px)
 
 	color: $color-black
-
 	a:after
 		content: none
 
@@ -58,8 +61,8 @@
 
 	.accordion
 		position: relative
-		+rem(left, -80px)
-		width: calc(100% + 80px)
+		+rem(left, - $sideoffset)
+		width: calc(100% + #{$sideoffset-rem})
 
 	.action-button
 		position: relative
@@ -395,8 +398,18 @@
 		// +rem(margin-top, 45px)
 		+rem(margin-bottom, 40px)
 
+
+	& > .gallery-list
+		overflow: hidden
+
 	.video-thumb
+		position: relative
 		+rem(margin-bottom, 80px)
+		// +rem(left, -$sideoffset)
+		// width: 100%
+
+		img
+			width: 100%
 
 
 	// .subnotes
@@ -418,13 +431,16 @@
 	.google-map
 		display: inline-block
 		position: relative
-		+rem(width, 960px)
+		// +rem(width, 960px)
+		width: 100%
 		+rem(height, 450px)
 		z-index: 1
 		background-color: $color-grey
 		// +rem(margin-top, 45px)
 		+rem(margin-bottom, 80px)
-		max-width: calc(100% - 40px)
+		// max-width: calc(100% - 40px)
+		// max-width: calc(100% - #{$sideoffset-rem * 0.5})
+		// +rem(left, - $sideoffset)
 
 		& > .map
 			display: block
@@ -481,6 +497,10 @@
 				height: 0
 				border-top: 10px solid $color-black
 				border-right: 100px solid transparent
+
+			a
+				color: white
+				outline: none
 
 			.marker-wrapper
 				color: white
@@ -619,5 +639,28 @@
 		// 		+rem(top,-6px)
 		// 		+rem(font-size,14px)
 		// 		+transition(0.3s)
-				
+
+
+html:not(.mobile) .generic-page
+	
+	.video-thumb
+		+rem(left, -$sideoffset)
+		width: 100%
+
+		img
+			width: 100%
+
+	.gallery-list
+		+rem(left, - $sideoffset)
+		+rem(padding-right, 0)
+		width: calc(100% + #{$sideoffset-rem})
+
+	.google-map
+		max-width: calc(100% - #{$sideoffset-rem * 0.5})
+		+rem(left, - $sideoffset)
+
+	.no-offset
+		left: 0 !important
+		width: 100%
+
 

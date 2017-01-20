@@ -204,6 +204,7 @@
 			// &:hover
 		.active .control-button
 			color: $color-cyan
+			+rem(padding,7px 28px 21px 0)
 
 			&:before, &:after
 				// +rem(width, 24px)
@@ -222,6 +223,14 @@
 				// +transform(translate(-(1px/16px)*1rem, -(4/16)*1rem) rotateZ(45deg) translateX( 0 ) )
 				+transform(translate(-(2px/16px)*1rem, (0/16)*1rem) rotateZ(45deg) translateX( 0 ) )
 
+
+		&.history-section .active .control-button
+			&:before
+				+transform(translate( -(2px/16px)*1rem,-(6/16)*1rem) rotateZ(-45deg) translateX( 0 ) )
+
+			&:after
+				
+				+transform(translate(-(2px/16px)*1rem, -(6/16)*1rem) rotateZ(45deg) translateX( 0 ) )		
 
 		& > .section-wrapper > .head-wrapper
 			display: block
@@ -267,6 +276,7 @@
 			border-right: 2px solid black
 			+rem(padding-bottom,32px)
 			+transition(padding 0.3s)
+			+rem(margin-top,15px)
 
 			&:before
 				content: ''
@@ -287,7 +297,8 @@
 
 		&.active
 			.control-button-wrapper
-				+rem(padding,16px 0)
+				// +rem(padding,16px 0)
+				+rem(padding,8px 0 25px)
 
 				&:before
 					top: 0
@@ -918,7 +929,7 @@
 				color: $color-grey
 
 			.control-button
-				+rem(margin-top, 15px)
+				// +rem(margin-top, 15px)
 
 	// section#active-packages-options-section.options-section
 	.active-packages-section.options-section

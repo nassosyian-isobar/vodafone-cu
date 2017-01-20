@@ -8,6 +8,9 @@
 
 @media (max-width: $mobile-breakpoint)
 
+	#content.generic-page
+		margin-top: 0
+		
 	.generic-page
 		+rem(width,1680px)
 		max-width: 100%
@@ -399,10 +402,11 @@
 			margin-right: 5px
 
 		.video-thumb
-			+rem(margin-top, 25px)
+			// +rem(margin-top, 25px)
 			margin-left: 5px
 			// max-width: calc(100% - 20px)
 			margin-right: 20px
+
 
 
 		// .subnotes
@@ -531,6 +535,14 @@
 			& > p, & > ul, & > .h1, & > .h2, & > .h3, & > .h4, & > .h5, & > .h6, & > .subtext, & > .breadcrumb
 				margin-left: 20px
 				margin-right: 20px
+
+			.gallery-list, .google-map
+				margin-top: 0
+				margin-bottom: 30px
+
+			.video-thumb
+				margin-top: 0
+				margin-bottom: (30px + 15px)
 
 
 

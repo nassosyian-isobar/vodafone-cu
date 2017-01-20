@@ -44,7 +44,8 @@
 						+rem(width,80px)
 						+rem(width,34px)
 						+rem(height,34px)
-						+transition(0s)
+						// +transition(0s)
+						+transition(0.3s)
 						border: none
 
 						&:before
@@ -57,6 +58,9 @@
 
 			&.active .icon-arrow-head
 				+transform(none)
+
+			&.slide-down.active .icon-arrow-head
+				+rotateZ(90deg)
 
 			.nav-header
 				// background-color: $color-light-grey

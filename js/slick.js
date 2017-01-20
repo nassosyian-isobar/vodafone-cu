@@ -2011,7 +2011,7 @@
 				if (toShow > 0)
 					_.options.slidesToShow = toShow;
 				// console.log('_.options.slidesToShow: '+_.options.slidesToShow);
-				console.log('listWidth['+_.listWidth+'] slideWidth['+_.slideWidth+'] slidesToShow: '+_.options.slidesToShow);
+				// console.log('listWidth['+_.listWidth+'] slideWidth['+_.slideWidth+'] slidesToShow: '+_.options.slidesToShow);
 				// _.options.slidesToShow = Math.max(1, _.options.slidesToShow);
 			}
 			else
@@ -2091,7 +2091,7 @@
 		_.buildDots();
 		_.updateDots();
 		_.initDotEvents();
-		console.log('slideToShow['+_.options.slidesToShow+'] currentSlide['+_.currentSlide+']');
+		// console.log('slideToShow['+_.options.slidesToShow+'] currentSlide['+_.currentSlide+']');
 	};
 
 
