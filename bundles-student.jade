@@ -1,0 +1,86 @@
+doctype html
+html(lang="el").loged-in.show-offer-sidebar--
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		//- meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+
+		meta(property="og:title" content="Vodafone CU")
+		meta(property="og:description" content="<description goes here>")
+		meta(property="twitter:title" content="Vodafone CU")
+		meta(property="twitter:description" content="<description goes here>")
+
+			
+		title Vodafone CU - Bundles
+
+		//- link(href="img/fav_icon.png" rel="icon")
+
+		link(href="css/tooltipster.bundle.min.css" rel="stylesheet")
+		link(href="css/fonts.css" rel="stylesheet")
+			
+		link(href="css/slick.css" rel="stylesheet")
+		//- link(href="css/owl.carousel.min.css" rel="stylesheet")
+
+		link(href="css/styles.css" rel="stylesheet")
+		link(href="css/responsive.css" rel="stylesheet")
+		link(href="css/page-bundles.css" rel="stylesheet")
+		link(href="css/responsive-page-bundles.css" rel="stylesheet")
+
+		//- include _ga
+
+		script(src="js/device.min.js")
+			
+	body
+		include _login-panel.jade
+		//- #page.page-bundles
+		include _header.jade
+
+		//- include _login-section.jade
+
+		#content.page-bundles
+
+			include _header-carousel.jade
+						
+
+			include _user-info-dash-board.jade
+
+			section#intro.page-middle-column
+				.wrapper
+					h1.title.h1 Πακέτα για Φοιτητές &amp; Under 24
+					.detail.
+						Μίλα για όλα, γράψε ιστορία, μηδένισε τις αποστάσεις εντός κι εκτός συνόρων και κάνε <span class="underlined-title">RESTART</span>. Ό,τι κι αν θέλεις να κάνεις, σου το έχουμε "πακέτο".
+					.window
+						.title Are you a Student? Are you under 24?
+						.text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget <br>turpis odio. Ut tristique nunc vel vulputate consectetur. 
+						.action-button
+							.text Συμπλήρωσε τη Φόρμα
+
+					//- .links
+					//- 	//- a(href='#offers-section') Προσφορές
+					//- 	a(href='#speech-section') Ομιλία
+					//- 	a(href='#data-section') Data
+					//- 	a(href='#sms-section') SMS
+					//- 	a(href='#international-section') International
+
+
+			.alternating-color-sections
+				section#offers-section.page-middle-column
+					.head-wrapper
+						h2.title.underlined-title.h1 Φοιτητές
+						.detail Data για να σερφάρισμα στα βαθιά, με τα πακέτα mobile internet.
+					include _package-list-DATA.jade
+
+				section#speech-section.page-middle-column
+					.head-wrapper
+						h2.title.underlined-title.h1 Under 24
+						.detail Βγάλ’ τα από μέσα σου με τα πακέτα Ομιλίας του CU.
+					include _package-list-SPEECH.jade
+
+
+			include _there-is-more.jade
+
+			include _sidebar.jade
+
+			include _footer.jade
+
+

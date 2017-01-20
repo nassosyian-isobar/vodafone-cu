@@ -66,6 +66,35 @@ section#intro
 				&:after
 					content: none
 
+		.window
+			display: block
+			background-color: #6F7279
+			color: white
+			+rem(margin-top, 35px)
+
+			.title
+				display: inline-block
+				+rem(font-size, 24px)
+				font-weight: 400
+				color: white
+				text-decoration: none
+				// +rem(margin-right, 60px)
+				+rem(padding, 15px 20px 0)
+
+			& > .text
+				+rem(font-size, 19px)
+				+rem(letter-spacing,1px)
+				+rem(padding, 7px 20px)
+				+rem(line-height,26px)
+				font-weight: 100
+				color: white
+
+			.action-button
+				background-color: $color-red
+				color: white
+				+rem(margin-left,20px)
+				position: relative
+				bottom: -10px
 
 
 
