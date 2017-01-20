@@ -2043,7 +2043,7 @@
 		var _ = this,
 			targetLeft;
 
-		console.log(_.$slider);
+		// console.log(_.$slider);
 
 		function _calcIndex()
 		{
